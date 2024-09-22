@@ -1,0 +1,243 @@
+[gd_scene load_steps=3 format=3 uid="uid://caf354ri8a5t8"]
+
+[ext_resource type="Script" path="res://UI/options_menu.gd" id="1_1f0g7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfj8s"]
+bg_color = Color(0, 0, 0, 0.458824)
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1f0g7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/CenterContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(1200, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfj8s")
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel"]
+layout_mode = 2
+offset_right = 1200.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 32
+current_tab = 0
+
+[node name="Graphics" type="Control" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer"]
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "— Display — 
+ "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WindowLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Window Mode: "
+
+[node name="FullscreenMode" type="OptionButton" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "WINDOWED"
+popup/item_0/id = 0
+popup/item_1/text = "BORDERLESS"
+popup/item_1/id = 1
+popup/item_2/text = "FULLSCREEN"
+popup/item_2/id = 2
+popup/item_3/text = "EXCLUSIVE FULLSCREEN"
+popup/item_3/id = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resolution: "
+
+[node name="Resolution" type="OptionButton" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "1920x1080 (16:9)"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900 (16:9)"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720 (16:9)"
+popup/item_2/id = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VsyncLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Vsync: "
+
+[node name="Vsync" type="OptionButton" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "ENABLED"
+popup/item_0/id = 0
+popup/item_1/text = "DISABLED"
+popup/item_1/id = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GrassModeLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Grass Mode: "
+
+[node name="GrassMode" type="OptionButton" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "NONE"
+popup/item_0/id = 0
+popup/item_1/text = "SHELL"
+popup/item_1/id = 1
+popup/item_2/text = "BILLBOARD (N/A)"
+popup/item_2/id = 2
+
+[node name="Audio" type="Control" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "— Volume — 
+ "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WindowLabel" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Master Volume:"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(800, 60)
+layout_mode = 2
+min_value = -80.0
+max_value = 6.0
+
+[node name="VolumeVal" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="Controls" type="Control" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="CloseMenu" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "(x)"
+
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/FullscreenMode" to="." method="_on_fullscreen_mode_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer2/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer3/Vsync" to="." method="_on_vsync_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer4/GrassMode" to="." method="_on_grass_mode_item_selected"]
+[connection signal="value_changed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/CloseMenu" to="." method="_on_close_menu_pressed"]

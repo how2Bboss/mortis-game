@@ -1,0 +1,191 @@
+[gd_scene load_steps=4 format=3 uid="uid://came2hg0jxx1v"]
+
+[ext_resource type="Script" path="res://UI/save_menu.gd" id="1_na5tx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17skn"]
+bg_color = Color(0, 0, 0, 0.458824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mw7a3"]
+bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+border_width_left = 32
+border_width_top = 32
+border_width_right = 32
+border_width_bottom = 32
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="save_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_na5tx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/CenterContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(1200, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_17skn")
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel"]
+layout_mode = 2
+offset_right = 1200.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 32
+current_tab = 0
+
+[node name="Load" type="Control" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load save:"
+
+[node name="SaveList" type="ItemList" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+fixed_icon_size = Vector2i(128, 128)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FILENAME" type="TextEdit" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(800, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Save as: Default Filename… (Date/Time)"
+wrap_mode = 1
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " < SAVE > "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadButton" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " LOAD "
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " DELETE "
+
+[node name="Popup" type="Popup" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton"]
+transparent_bg = true
+position = Vector2i(704, 412)
+size = Vector2i(512, 309)
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mw7a3")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "ARE YOU SURE?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmDelete" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " YES "
+
+[node name="CancelDelete" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " CANCEL "
+
+[node name="CloseMenu" type="Button" parent="HBoxContainer/MarginContainer/CenterContainer/Panel"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "(x)"
+
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/SaveList" to="." method="_on_save_list_item_selected"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="close_requested" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup" to="." method="_on_popup_close_requested"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer/HBoxContainer/ConfirmDelete" to="." method="_on_confirm_delete_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/TabContainer/Load/MarginContainer/VBoxContainer/HBoxContainer2/DeleteButton/Popup/Panel/MarginContainer/VBoxContainer/HBoxContainer/CancelDelete" to="." method="_on_cancel_delete_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/CenterContainer/Panel/CloseMenu" to="." method="_on_close_menu_pressed"]

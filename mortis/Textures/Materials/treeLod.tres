@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://duhn4ckwf018m"]
+
+[ext_resource type="Shader" path="res://Shaders/positionalBillboard.gdshader" id="1_4uqls"]
+[ext_resource type="Texture2D" uid="uid://8qsoh5pos666" path="res://Textures/TreeNML.png" id="2_csmjt"]
+[ext_resource type="Texture2D" uid="uid://b54vy2rx0jll4" path="res://Textures/Tree2.png" id="3_p3vfw"]
+
+[sub_resource type="Gradient" id="Gradient_xbjey"]
+offsets = PackedFloat32Array(0.281977, 1)
+colors = PackedColorArray(0.0932805, 0.0680391, 0.0371782, 1, 0.955333, 1, 0.33, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e5sy8"]
+gradient = SubResource("Gradient_xbjey")
+fill_from = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4uqls")
+shader_parameter/texture_albedo = ExtResource("3_p3vfw")
+shader_parameter/normal_map = ExtResource("2_csmjt")
+shader_parameter/grad = SubResource("GradientTexture2D_e5sy8")
+shader_parameter/transmission = Color(0.644, 0.7, 0.648667, 1)
+shader_parameter/alpha_scissor_threshold = 0.3
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0

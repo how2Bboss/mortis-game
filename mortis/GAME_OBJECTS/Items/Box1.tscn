@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://17beahbtrlqb"]
+
+[ext_resource type="Texture2D" uid="uid://cwumrdn2hgarr" path="res://Textures/Wood 256x256.png" id="1_68p4v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmieb"]
+albedo_texture = ExtResource("1_68p4v")
+texture_filter = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_yeetk"]
+material = SubResource("StandardMaterial3D_cmieb")
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_774mc"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Box" type="Node3D" groups=["LevelObjects"]]
+metadata/Name = "Box"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 43
+mass = 50.0
+metadata/Name = "Box"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_yeetk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_774mc")

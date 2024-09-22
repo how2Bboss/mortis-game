@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://biyapj30hv7vl"]
+
+[resource]
+albedo_color = Color(0.66, 0.0594, 0.0594, 1)
+emission = Color(1, 0, 0, 1)
+clearcoat_enabled = true
+clearcoat_roughness = 0.05
+subsurf_scatter_strength = 0.05

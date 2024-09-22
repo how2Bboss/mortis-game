@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b1sbb8sjfq327"
+path="res://.godot/imported/Cat.obj-2a85b62fa8fb6e74e3d98b2741c9e6ca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cat.obj-2a85b62fa8fb6e74e3d98b2741c9e6ca.mesh"]
+
+source_file="res://Assets/Horror game assets/Plushes/Cat/Cat.obj"
+dest_files=["res://.godot/imported/Cat.obj-2a85b62fa8fb6e74e3d98b2741c9e6ca.mesh", "res://.godot/imported/Cat.obj-2a85b62fa8fb6e74e3d98b2741c9e6ca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

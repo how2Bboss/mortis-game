@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwa6ulbmiqe3m"]
+
+[ext_resource type="Script" path="res://GAME_OBJECTS/PickableItem.gd" id="1_rwjvc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt1ae"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fspwb"]
+material = SubResource("StandardMaterial3D_tt1ae")
+radius = 0.2
+height = 0.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1phvh"]
+radius = 0.2
+height = 0.8
+
+[sub_resource type="Gradient" id="Gradient_hqhsq"]
+colors = PackedColorArray(0.78, 0.78, 0.78, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_52pfe"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oau27"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_hqhsq")
+noise = SubResource("FastNoiseLite_52pfe")
+
+[node name="LightBall" type="Node3D"]
+script = ExtResource("1_rwjvc")
+ObjectName = "Glowing Ball"
+Volume = 0.5
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 107
+mass = 0.1
+
+[node name="MESH" type="MeshInstance3D" parent="RigidBody3D"]
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_fspwb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_1phvh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RigidBody3D"]
+light_projector = SubResource("NoiseTexture2D_oau27")
+light_size = 0.2
+shadow_enabled = true
+shadow_bias = 0.045
+omni_range = 16.0

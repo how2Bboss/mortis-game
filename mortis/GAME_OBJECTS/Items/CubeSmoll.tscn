@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://duo518snn285i"]
+
+[ext_resource type="Texture2D" uid="uid://djvred1qlto7t" path="res://Textures/MoonProjection.jpg" id="1_nicvl"]
+[ext_resource type="Texture2D" uid="uid://cytljcn6ct8la" path="res://Textures/MoonProjectionBumpMap.jpg" id="2_vtxuy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rk8ab"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e6ep"]
+albedo_texture = ExtResource("1_nicvl")
+ao_enabled = true
+ao_light_affect = 0.5
+ao_texture = ExtResource("2_vtxuy")
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("2_vtxuy")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i6t3a"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ojsji"]
+friction = 0.06
+
+[node name="Node3D" type="Node3D"]
+
+[node name="5" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 43
+mass = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="5"]
+shape = SubResource("CapsuleShape3D_rk8ab")
+
+[node name="Mesh" type="MeshInstance3D" parent="5"]
+material_override = SubResource("StandardMaterial3D_4e6ep")
+mesh = SubResource("CapsuleMesh_i6t3a")
+
+[node name="20" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 8
+collision_mask = 43
+mass = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="20"]
+shape = SubResource("CapsuleShape3D_rk8ab")
+
+[node name="Mesh" type="MeshInstance3D" parent="20"]
+material_override = SubResource("StandardMaterial3D_4e6ep")
+mesh = SubResource("CapsuleMesh_i6t3a")
+
+[node name="100" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 8
+collision_mask = 43
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_ojsji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="100"]
+shape = SubResource("CapsuleShape3D_rk8ab")
+
+[node name="Mesh" type="MeshInstance3D" parent="100"]
+material_override = SubResource("StandardMaterial3D_4e6ep")
+mesh = SubResource("CapsuleMesh_i6t3a")

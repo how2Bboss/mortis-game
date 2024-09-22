@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://big3xhb54tx46"]
+
+[ext_resource type="Shader" path="res://Shaders/SkyShader.gdshader" id="1_ywno7"]
+[ext_resource type="Texture2D" uid="uid://ce12m2j8kv2ht" path="res://Textures/CrabNebula.png" id="2_s7uev"]
+
+[sub_resource type="Gradient" id="Gradient_1w863"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.546296, 0.898148)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sik16"]
+gradient = SubResource("Gradient_1w863")
+fill_from = Vector2(1, 0.7)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_nxt7m"]
+offsets = PackedFloat32Array(0.348624, 0.541284, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.20871, 0.20871, 0.20871, 1, 0.699653, 0.699653, 0.699653, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_puedj"]
+fractal_octaves = 10
+fractal_gain = 0.455
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h5cot"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_nxt7m")
+noise = SubResource("FastNoiseLite_puedj")
+
+[resource]
+shader = ExtResource("1_ywno7")
+shader_parameter/night_sky_intensity = 1.0
+shader_parameter/cover_mix = 0.03
+shader_parameter/rayleigh = 2.0
+shader_parameter/rayleigh_color = Color(0.3, 0.405, 0.6, 1)
+shader_parameter/mie = 0.005
+shader_parameter/mie_eccentricity = 0.8
+shader_parameter/mie_color = Color(0.69, 0.729, 0.812, 1)
+shader_parameter/turbidity = 10.0
+shader_parameter/sun_disk_scale = 5.0
+shader_parameter/ground_color = Color(0.1, 0.07, 0.034, 1)
+shader_parameter/exposure = 3.0
+shader_parameter/night_sky = ExtResource("2_s7uev")
+shader_parameter/cover = SubResource("NoiseTexture2D_h5cot")
+shader_parameter/cloud_gradient = SubResource("GradientTexture2D_sik16")
